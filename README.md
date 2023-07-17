@@ -68,8 +68,14 @@ The current implementation uses a simple model-based controller and kinematic mo
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Implementation of MPC are inspired from the following excellent sources
+Implementation of MPC are inspired from the following sources,
 
 * [MPC/MHE Explanation](https://www.youtube.com/playlist?list=PLK8squHT_Uzej3UCUHjtOtm5X7pMFSgAL)
 * [Lane Centering with MPC](https://jonathan-hui.medium.com/lane-keeping-in-autonomous-driving-with-model-predictive-control-50f06e989bc9)
+
+Excellent resources on CaSaDi, 
+
+* [Optimal Control in CaSaDi using Python and MATLAB](https://www.youtube.com/watch?v=5Fpi_C0w2lg)
+* [Overview of CaSaDi](https://www.youtube.com/watch?v=DvicSVRhVxQ)
+
 
