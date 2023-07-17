@@ -5,10 +5,10 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from spline import SplineFitter
-from model import KinematicModel
-from controller import Controller
-from waypoint_generator import FakeWayPointGenerator
+from src.spline import SplineFitter
+from src.model import KinematicModel
+from src.controller import Controller
+from src.waypoint_generator import FakeWayPointGenerator
 
 def main(waypoints_path: str, control_params: dict, model_params: dict, generate_waypoints: bool) -> None:
     """!
@@ -56,6 +56,7 @@ def main(waypoints_path: str, control_params: dict, model_params: dict, generate
             x_fit, y_fit = spline_fitter.get_spline_plan()
             theta_fit = spline_fitter.get_heading()
             ref = np.vstack((x_fit, y_fit, theta_fit))
+            #Terminate if we have reached the end of the waypoints 
             if i >= ref.shape[1]:
                 break
             
@@ -86,7 +87,7 @@ def main(waypoints_path: str, control_params: dict, model_params: dict, generate
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Robot Controller")
-    parser.add_argument('--waypoints_path', default='waypoints3.npy', type=str, help='Path to numpy file with waypoints')
+    parser.add_argument('--waypoints_path', default='data/waypoints3.npy', type=str, help='Path to numpy file with waypoints')
     parser.add_argument('--generate_waypoints', action='store_true', help='Flag to generate waypoints instead of loading from file')
     args = parser.parse_args()
 

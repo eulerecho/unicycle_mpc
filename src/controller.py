@@ -92,6 +92,7 @@ class Controller:
             "print_header": False,
             "print_iteration": False,
             "print_time": False,
+            "print_status": False,
             "qpsol_options": {"print_iter": False, "print_header": False, "print_info": False}
         }
         opti.solver('sqpmethod', opts)

@@ -35,9 +35,6 @@ class SplineFitter:
             self.fit_spline()
             if old_tck is not None:
                 self.u_current = self.find_new_u(self.current_point)
-                print("u_current: ",self.u_current)
-            else:
-                print("old_tck is None")
     
     def set_current_point(self, current_point: np.ndarray) -> None:
         """!
