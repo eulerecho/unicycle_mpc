@@ -1,7 +1,10 @@
 # Autonomous Robot Navigation
 
 This project consists of an autonomous navigation system for a robot using a model-based controller. The robot follows a path defined by waypoints, with the option to either generate these waypoints on the fly or load them from a file.
-![286d50d9-9fe2-45a9-8977-d3aa2901f48a](https://github.com/eulerecho/unicycle_mpc/assets/56460011/534a28a5-6803-46fb-bb40-87994693e8e9)
+<p align="center">
+  <img src="https://github.com/eulerecho/unicycle_mpc/assets/56460011/0feb8ac9-1f5b-4758-b4d0-cb86cd2f9fdc" alt="Autonomous Robot Navigation">
+</p>
+
 
 ## Key Features
 
