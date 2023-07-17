@@ -8,15 +8,18 @@ import numpy as np
 from spline import SplineFitter
 from model import KinematicModel
 from controller import Controller
+from waypoint_generator import FakeWayPointGenerator
 
 def main(waypoints_path, control_params, model_params):
     # Load waypoints
-    waypoints = np.load(waypoints_path)
-
+    # waypoints = np.load(waypoints_path)
+    fwp = FakeWayPointGenerator()
+    fwp.start()
+    waypoints = fwp.get_waypoints()
     # Initialize Controller and KinematicModel
     controller = Controller(*control_params.values())
     model = KinematicModel(*model_params.values())
-    model.setInitialState(waypoints[0])
+    model.set_initial_state(waypoints[0])
 
     waypoints_queue = queue.Queue()
 
@@ -51,7 +54,7 @@ def main(waypoints_path, control_params, model_params):
             ref = np.vstack((x_fit, y_fit, theta_fit))
             
             # Calculate control from current state
-            state = np.array(model.getCurrentState()).reshape(control_params['n_states'], 1)
+            state = np.array(model.get_current_state()).reshape(control_params['n_states'], 1)
             print(state)
             track_ref = ref[:, i:i+control_params['N']+1]
             control = controller.get_control(state, track_ref)
