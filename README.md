@@ -1,6 +1,7 @@
 # Autonomous Robot Navigation
 
 This project consists of an autonomous navigation system for a robot using a model-based controller. The robot follows a path defined by waypoints, with the option to either generate these waypoints on the fly or load them from a file.
+![286d50d9-9fe2-45a9-8977-d3aa2901f48a](https://github.com/eulerecho/unicycle_mpc/assets/56460011/534a28a5-6803-46fb-bb40-87994693e8e9)
 
 ## Key Features
 
@@ -14,6 +15,21 @@ This project consists of an autonomous navigation system for a robot using a mod
 
 5. **Visualization**: The program uses Matplotlib to visualize the robot's movement in real-time, showing the waypoints, the fitted path, the robot's current position, and the predicted future states.
 
+## Dependencies
+
+This project requires the following Python libraries:
+
+* argparse
+* threading
+* queue
+* time
+* matplotlib
+* numpy
+* casadi
+```bash
+pip install casadi
+```
+  
 ## Code Execution
 
 The main function of the script is `main()`, which accepts the following parameters:
@@ -33,18 +49,6 @@ To use default saved waypoints,
 ```bash
 python3 main.py 
 ```
-
-## Dependencies
-
-This project requires the following Python libraries:
-
-* argparse
-* threading
-* queue
-* time
-* matplotlib
-* numpy
-
 ## Project Structure
 
 The main script imports several classes from the src directory:
