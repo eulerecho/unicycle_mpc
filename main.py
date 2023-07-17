@@ -73,11 +73,12 @@ def main(waypoints_path: str, control_params: dict, model_params: dict, generate
             ax2.clear()
             ax2.set_xlim([0, 1])
             ax2.set_ylim([0, 1])
-            ax2.plot(*zip(*waypoints), 'ro') 
-            ax2.plot(*spline_fitter.get_spline_points(), 'g-') 
-            ax2.plot(state[0][0], state[1][0], 'bo')
-            ax2.quiver(*rollout[:, :2].T, np.cos(rollout[:, 2]), np.sin(rollout[:, 2]), color='k')
-            
+            waypoints_plot, = ax2.plot(*zip(*waypoints), 'ro', label='Waypoints') 
+            spline_plot, = ax2.plot(*spline_fitter.get_spline_points(), 'g-', label='Planned Path') 
+            state_plot, = ax2.plot(state[0][0], state[1][0], 'bo', label='Current State')
+            quiver_plot = ax2.quiver(*rollout[:, :2].T, np.cos(rollout[:, 2]), np.sin(rollout[:, 2]), color='k', label='MPC Rollout')
+            ax2.legend(handles=[waypoints_plot, spline_plot, state_plot, quiver_plot])
+
             spline_fitter.set_current_point(ref[:, i][:2])
             model.step(control[0, 0], control[1, 0])
 
